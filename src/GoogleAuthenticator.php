@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 /*
  * This file is part of the Sonata Project package.
@@ -62,12 +62,12 @@ final class GoogleAuthenticator
      * @param int                     $secretLength
      * @param \DateTimeInterface|null $now
      */
-    public function __construct(int $passCodeLength = 6, int $secretLength = 10, \DateTimeInterface $now = null)
+    public function __construct($passCodeLength = 6, $secretLength = 10, $now = null)
     {
         $this->passCodeLength = $passCodeLength;
         $this->secretLength = $secretLength;
         $this->pinModulo = 10 ** $passCodeLength;
-        $this->now = $now ?? new \DateTimeImmutable();
+        $this->now = ($now == null) ? new \DateTimeImmutable() : $now;
     }
 
     /**
@@ -76,7 +76,7 @@ final class GoogleAuthenticator
      *
      * @return bool
      */
-    public function checkCode($secret, $code): bool
+    public function checkCode($secret, $code)
     {
         /**
          * The result of each comparison is accumulated here instead of using a guard clause
@@ -110,7 +110,7 @@ final class GoogleAuthenticator
      *
      * @return string
      */
-    public function getCode($secret, /* \DateTimeInterface */$time = null): string
+    public function getCode($secret, /* \DateTimeInterface */$time = null)
     {
         if (null === $time) {
             $time = $this->now;
@@ -152,7 +152,7 @@ final class GoogleAuthenticator
      *
      * @deprecated deprecated as of 2.1 and will be removed in 3.0. Use Sonata\GoogleAuthenticator\GoogleQrUrl::generate() instead.
      */
-    public function getUrl($user, $hostname, $secret): string
+    public function getUrl($user, $hostname, $secret)
     {
         @trigger_error(sprintf(
             'Using %s() is deprecated as of 2.1 and will be removed in 3.0. '.
@@ -160,7 +160,7 @@ final class GoogleAuthenticator
             __METHOD__
         ), E_USER_DEPRECATED);
 
-        $issuer = func_get_args()[3] ?? null;
+        $issuer = (func_get_args()[3] == null) ? null : func_get_args()[3];
         $accountName = sprintf('%s@%s', $user, $hostname);
 
         // manually concat the issuer to avoid a change in URL
@@ -176,7 +176,7 @@ final class GoogleAuthenticator
     /**
      * @return string
      */
-    public function generateSecret(): string
+    public function generateSecret()
     {
         return (new FixedBitNotation(5, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567', true, true))
             ->encode(random_bytes($this->secretLength));
@@ -188,7 +188,7 @@ final class GoogleAuthenticator
      *
      * @return int
      */
-    private function hashToInt(string $bytes, int $start): int
+    private function hashToInt($bytes, $start)
     {
         return unpack('N', substr(substr($bytes, $start), 0, 4))[1];
     }

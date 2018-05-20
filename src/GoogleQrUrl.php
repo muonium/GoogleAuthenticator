@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 /*
  * This file is part of the Sonata Project package.
@@ -57,7 +57,7 @@ final class GoogleQrUrl
      *
      * @return string
      */
-    public static function generate(string $accountName, string $secret, string $issuer = null, int $size = 200): string
+    public static function generate($accountName, $secret, $issuer = null, $size = 200)
     {
         if ('' === $accountName || false !== strpos($accountName, ':')) {
             throw RuntimeException::InvalidAccountName($accountName);
