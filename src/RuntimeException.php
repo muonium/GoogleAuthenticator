@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+//declare(strict_types=1);
 
 /*
  * This file is part of the Sonata Project package.
@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Sonata\GoogleAuthenticator;
+namespace library\GA;
 
 /**
  * Contains runtime exception templates.
@@ -20,7 +20,7 @@ namespace Sonata\GoogleAuthenticator;
  */
 final class RuntimeException extends \RuntimeException
 {
-    public static function InvalidAccountName(string $accountName): self
+    public static function InvalidAccountName($accountName)
     {
         return new self(sprintf(
             'The account name may not contain a double colon (:) and may not be an empty string. Given "%s".',
@@ -28,7 +28,7 @@ final class RuntimeException extends \RuntimeException
         ));
     }
 
-    public static function InvalidIssuer(string $issuer): self
+    public static function InvalidIssuer($issuer)
     {
         return new self(sprintf(
             'The issuer name may not contain a double colon (:) and may not be an empty string. Given "%s".',
@@ -36,11 +36,9 @@ final class RuntimeException extends \RuntimeException
         ));
     }
 
-    public static function InvalidSecret(): self
+    public static function InvalidSecret()
     {
         return new self('The secret name may not be an empty string.');
     }
 }
 
-// NEXT_MAJOR: Remove class alias
-class_alias('Sonata\GoogleAuthenticator\RuntimeException', 'Google\Authenticator\RuntimeException', false);

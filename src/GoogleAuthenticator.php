@@ -11,6 +11,8 @@
  * file that was distributed with this source code.
  */
 
+namespace library\GA;
+
 /**
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,8 +26,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-namespace Sonata\GoogleAuthenticator;
 
 /**
  * @see https://github.com/google/google-authenticator/wiki/Key-Uri-Format
@@ -194,5 +194,3 @@ final class GoogleAuthenticator
     }
 }
 
-// NEXT_MAJOR: Remove class alias
-class_alias('Sonata\GoogleAuthenticator\GoogleAuthenticator', 'Google\Authenticator\GoogleAuthenticator', false);
