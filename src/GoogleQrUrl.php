@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace library\GA;
+namespace Muonium\GoogleAuthenticator;
 
 /**
  * Responsible for QR image url generation.
@@ -89,4 +89,3 @@ final class GoogleQrUrl
         );
     }
 }
-

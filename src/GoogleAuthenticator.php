@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace library\GA;
+namespace Muonium\GoogleAuthenticator;
 
 /**
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -193,4 +193,3 @@ final class GoogleAuthenticator
         return unpack('N', substr(substr($bytes, $start), 0, 4))[1];
     }
 }
-

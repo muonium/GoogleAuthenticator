@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace library\GA;
+namespace Muonium\GoogleAuthenticator;
 
 /**
  * FixedBitNotation.

@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-namespace library\GA;
+namespace Muonium\GoogleAuthenticator;
 
 /**
  * Contains runtime exception templates.
@@ -41,4 +41,3 @@ final class RuntimeException extends \RuntimeException
         return new self('The secret name may not be an empty string.');
     }
 }
-
