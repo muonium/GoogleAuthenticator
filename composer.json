@@ -1,11 +1,11 @@
 {
-    "name": "sonata-project/google-authenticator",
+    "name": "muonium/google-authenticator",
     "type": "library",
     "description": "Library to integrate Google Authenticator into a PHP project",
     "keywords": [
         "google authenticator"
     ],
-    "homepage": "https://github.com/sonata-project/GoogleAuthenticator",
+    "homepage": "https://github.com/muonium/GoogleAuthenticator",
     "license": "MIT",
     "authors": [
         {
@@ -22,7 +22,8 @@
         }
     ],
     "require": {
-        "php": "^7.1"
+        "php": "^5.6 || ^7.0",
+        "paragonie/random_compat": "^2.0"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^4.0"
@@ -38,13 +39,13 @@
     "autoload": {
         "psr-4": {
             "Google\\Authenticator\\": "src/",
-            "Sonata\\GoogleAuthenticator\\": "src/"
+            "Muonium\\GoogleAuthenticator\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Google\\Authenticator\\Tests\\": "tests/",
-            "Sonata\\GoogleAuthenticator\\Tests\\": "tests/"
+            "Muonium\\GoogleAuthenticator\\Tests\\": "tests/"
         }
     }
 }
